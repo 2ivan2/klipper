@@ -69,7 +69,6 @@ add_sample(struct ads1220_adc *ads1220, uint8_t oid, uint_fast32_t counts)
     ads1220->sb.data[ads1220->sb.data_count + 2] = counts >> 16;
     ads1220->sb.data[ads1220->sb.data_count + 3] = counts >> 24;
     ads1220->sb.data_count += BYTES_PER_SAMPLE;
-
     if ((ads1220->sb.data_count + BYTES_PER_SAMPLE) >
             ARRAY_SIZE(ads1220->sb.data)) {
         sensor_bulk_report(&ads1220->sb, oid);
